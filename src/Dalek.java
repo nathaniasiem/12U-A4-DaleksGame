@@ -27,8 +27,7 @@ public class Dalek {
      * @param doc The Doctor to move towards.
      */
     public void advanceTowards(Doctor doc) {
-        if(Dalek>doc||Dalek<doc){
-            
+          
         }
     }
 
