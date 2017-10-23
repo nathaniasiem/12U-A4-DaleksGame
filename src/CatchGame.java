@@ -1,4 +1,7 @@
 
+import java.awt.Color;
+
+
 /** This class manages the interactions between the different pieces of
  *  the game: the Board, the Daleks, and the Doctor. It determines when
  *  the game is over and whether the Doctor won or lost.
@@ -9,6 +12,13 @@ public class CatchGame {
      * Instance variables go up here
      * Make sure to create a Board, 3 Daleks, and a Doctor
      */
+    private int [][]board;
+    private String Doctor;
+    private String 
+    
+    
+    
+    
     
     
 
