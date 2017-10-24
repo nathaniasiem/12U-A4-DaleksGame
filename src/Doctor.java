@@ -33,6 +33,7 @@ public class Doctor {
       //randomize position for doctor 
         int rdmCol=(int) (Math.random()*12);
         int rdmRow=(int) (Math.random()*12);
+        newRow=rdmCol
         
     }
 
