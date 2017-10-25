@@ -29,9 +29,8 @@ public class Dalek {
      */
     public void advanceTowards(Doctor doc) {
         //when doctor moves forward
-        (if (doc+>getRow){
-            this.row++;
-        
+        (if (this.getRow()> doc.getRow()){
+            this.row++;   
     }
 
     /**
@@ -39,7 +38,7 @@ public class Dalek {
      *
      * @return This Dalek's row.
      */
-    public int getRow() {
+    public int getRow(){
         return this.row;
     }
 
@@ -56,7 +55,7 @@ public class Dalek {
      * Sets the Dalek to be in a crashed state.
      */
     public void crash() {
-
+        this.hasCrashed=true;
     }
 
     /**

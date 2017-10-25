@@ -12,7 +12,7 @@ public class CatchGame {
      * Instance variables go up here Make sure to create a Board, 3 Daleks, and
      * a Doctor
      */
-    private int board;
+    private int Board;
     private int Doctor;
     private int Dalek;
 
