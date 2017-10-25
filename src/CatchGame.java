@@ -23,6 +23,7 @@ public class CatchGame {
     public CatchGame() {
         //create  the 12x12 board
         Board b = new Board(12,12);
+        Doctor doc = new Doctor(rdmRow,rdmCol);
 
 
     }

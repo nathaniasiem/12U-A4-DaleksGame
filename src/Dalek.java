@@ -29,10 +29,20 @@ public class Dalek {
      */
     public void advanceTowards(Doctor doc) {
         //when doctor moves forward
-        (if (this.getRow()> doc.getRow()){
+        if (this.row> doc.getRow()){
             this.row++;   
     }
-
+        if(this.getCol()>doc.getCol()){
+            this.col++;
+        }
+        if (this.row<doc.getRow()){
+            this.row--;
+        }
+        if(this.getCol()< doc.getCol()){
+            this.col--;
+        }
+        
+    }
     /**
      * Returns the row of this Dalek.
      *
