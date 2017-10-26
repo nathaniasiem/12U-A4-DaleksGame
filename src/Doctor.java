@@ -30,11 +30,17 @@ public class Doctor {
      * @param newCol The column the player clicked on.
      */
     public void move(int newRow, int newCol) {
-      //randomize position for doctor 
-        int rdmCol=(int) (Math.random()*12);
-        int rdmRow=(int) (Math.random()*12);
-        newRow=rdmCol
-        
+        //randomize position for doctor 
+        int rdmCol = (int) (Math.random() * 12);
+        int rdmRow = (int) (Math.random() * 12);
+
+        if (newRow > 1 && newCol > 1) {
+            newRow = this.row;
+            newCol = this.col;
+        } else {
+            newRow = rdmRow;
+            newCol = rdmCol;
+        }
     }
 
     /**

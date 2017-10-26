@@ -13,8 +13,8 @@ public class CatchGame {
      * a Doctor
      */
     private int Board;
-    private int Doctor;
-    private int Dalek;
+    private Doctor doctor;
+    private Dalek dk1,dk2,dk3;
 
     /**
      * The constructor for the game. Use it to initialize your game variables.
@@ -23,7 +23,10 @@ public class CatchGame {
     public CatchGame() {
         //create  the 12x12 board
         Board b = new Board(12,12);
-        Doctor doc = new Doctor(rdmRow,rdmCol);
+        this.doctor=new Doctor((int)*Math.random(12),(int)*Math.random(12));
+        Dalek dk1=new Dalek();
+        Dalek dk2 = new Dalek();
+        Dalek dk3 = new Dalek();
 
 
     }
