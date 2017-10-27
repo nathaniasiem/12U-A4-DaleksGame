@@ -56,6 +56,48 @@ public class CatchGame {
      * selects a square, when the Daleks move, when the game is won/lost.
      */
     public void playGame() {
-        
+        while(true){
+            //initialize the user to be able to click the board
+            Coordinate click = board.getClick();
+            doctor.move(click.getRow(),click.getCol());
+            board.removePeg(doctor.getRow(), doctor.getCol());
+            board.putPeg(Color.green, doctor.getRow(),doctor.getCol());
+           
+            
+            if(dk1.hasCrashed(dk2)){
+                dk1.crash();
+                dk2.crash();
+                board.removePeg(dk1.getRow(),dk1.getCol());
+                board.removePeg(dk2.getRow(),dk2.getCol());
+                board.putPeg(Color.red,dk1.getRow(),dk1.getRow());
+            }if(dk1.hasCrashed(dk3)){
+                dk1.crash();
+                dk3.crash();
+                board.removePeg(dk1.getRow(),dk1.getCol());
+                board.removePeg(dk3.getRow(),dk3.getCol());
+                board.putPeg(Color.red,dk2.getRow(),dk2.getRow());
+            }
+            if(dk2.hasCrashed(dk3)){
+                dk2.crash();
+                dk3.crash();
+                board.removePeg(dk2.getRow(),dk2.getCol());
+                board.removePeg(dk3.getRow(),dk3.getCol());
+                board.putPeg(Color.red,dk2.getRow(),dk2.getRow());
+            }if(dk1.hasCrashed(dk2)&&dk1.hasCrashed(dk3)&&dk2.hasCrashed(dk3)){
+                dk1.crash();
+                dk2.crash();
+                dk3.crash();
+                board.removePeg(dk1.getRow(),dk1.getCol());
+                board.removePeg(dk2.getRow(),dk2.getCol());
+                board.removePeg(dk3.getRow(),dk3.getCol());
+                board.displayMessage("You have WON!");
+                break;
+            }
+            
+            
+                
+            }
+            
+        }
     }
-}
+
