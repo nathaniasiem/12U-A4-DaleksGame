@@ -56,59 +56,78 @@ public class CatchGame {
      * selects a square, when the Daleks move, when the game is won/lost.
      */
     public void playGame() {
-        while(true){
+        while (true) {
             //initialize the user to be able to click the board
             Coordinate click = board.getClick();
+            
             board.removePeg(doctor.getRow(), doctor.getCol());
-            doctor.move(click.getRow(),click.getCol());
-            board.putPeg(Color.green, doctor.getRow(),doctor.getCol());
-            
-           board.removePeg(dk1.getRow(), dk1.getCol());
-           board.removePeg(dk2.getRow(), dk2.getCol());
-           board.removePeg(dk3.getRow(), dk3.getCol());
-            
-           dk1.advanceTowards(doctor);
-           board.putPeg(Color.BLACK, dk1.getRow(),dk1.getCol());
-           
-           dk2.advanceTowards(doctor);
-           board.putPeg(Color.BLACK, dk2.getRow(),dk2.getCol());
-           
-           dk3.advanceTowards(doctor);
-           board.putPeg(Color.BLACK, dk3.getRow(),dk3.getCol());
-           
-            if(dk1.hasCrashed(dk2)){
+            doctor.move(click.getRow(), click.getCol());
+            board.putPeg(Color.green, doctor.getRow(), doctor.getCol());
+
+            board.removePeg(dk1.getRow(), dk1.getCol());
+            board.removePeg(dk2.getRow(), dk2.getCol());
+            board.removePeg(dk3.getRow(), dk3.getCol());
+
+            dk1.advanceTowards(doctor);
+            board.putPeg(Color.BLACK, dk1.getRow(), dk1.getCol());
+
+            dk2.advanceTowards(doctor);
+            board.putPeg(Color.BLACK, dk2.getRow(), dk2.getCol());
+
+            dk3.advanceTowards(doctor);
+            board.putPeg(Color.BLACK, dk3.getRow(), dk3.getCol());
+
+            if (dk1.hasCrashed(dk2)) {
                 dk1.crash();
                 dk2.crash();
-                board.removePeg(dk1.getRow(),dk1.getCol());
-                board.removePeg(dk2.getRow(),dk2.getCol());
-                board.putPeg(Color.red,dk1.getRow(),dk1.getRow());
-            }if(dk1.hasCrashed(dk3)){
-                dk1.crash();
-                dk3.crash();
-                board.removePeg(dk1.getRow(),dk1.getCol());
-                board.removePeg(dk3.getRow(),dk3.getCol());
-                board.putPeg(Color.red,dk2.getRow(),dk2.getRow());
+                board.removePeg(dk1.getRow(), dk1.getCol());
+                board.removePeg(dk2.getRow(), dk2.getCol());
+                board.putPeg(Color.red, dk1.getRow(), dk1.getRow());
             }
-            if(dk2.hasCrashed(dk3)){
+            if (dk1.hasCrashed(dk3)) {
+                dk1.crash();
+                dk3.crash();
+                board.removePeg(dk1.getRow(), dk1.getCol());
+                board.removePeg(dk3.getRow(), dk3.getCol());
+                board.putPeg(Color.red, dk2.getRow(), dk2.getRow());
+            }
+            if (dk2.hasCrashed(dk3)) {
                 dk2.crash();
                 dk3.crash();
-                board.removePeg(dk2.getRow(),dk2.getCol());
-                board.removePeg(dk3.getRow(),dk3.getCol());
-                board.putPeg(Color.red,dk2.getRow(),dk2.getRow());
-            }if(dk1.hasCrashed(dk2)&&dk1.hasCrashed(dk3)&&dk2.hasCrashed(dk3)){
+                board.removePeg(dk2.getRow(), dk2.getCol());
+                board.removePeg(dk3.getRow(), dk3.getCol());
+                board.putPeg(Color.red, dk2.getRow(), dk2.getRow());
+            }
+            if (dk1.hasCrashed(dk2) && dk1.hasCrashed(dk3) && dk2.hasCrashed(dk3)) {
                 dk1.crash();
                 dk2.crash();
                 dk3.crash();
-                board.removePeg(dk1.getRow(),dk1.getCol());
-                board.removePeg(dk2.getRow(),dk2.getCol());
-                board.removePeg(dk3.getRow(),dk3.getCol());
-                board.putPeg(Color.red,dk1.getRow(),dk1.getRow());
+                board.removePeg(dk1.getRow(), dk1.getCol());
+                board.removePeg(dk2.getRow(), dk2.getCol());
+                board.removePeg(dk3.getRow(), dk3.getCol());
+                board.putPeg(Color.red, dk1.getRow(), dk1.getRow());
                 board.displayMessage("You have WON!");
                 break;
             }
-   
+            if (doctor.getRow() == dk1.getRow() && doctor.getCol() == dk1.getCol()) {
+                board.removePeg(doctor.getRow(), doctor.getCol());
+                board.removePeg(dk1.getRow(),dk1.getCol());
+                board.putPeg(Color.yellow, doctor.getRow(), doctor.getCol());
+            }if(doctor.getRow() == dk2.getRow() && doctor.getCol() == dk2.getCol()){
+               board.removePeg(doctor.getRow(), doctor.getCol());
+                board.removePeg(dk2.getRow(),dk2.getCol());
+                board.putPeg(Color.yellow, doctor.getRow(), doctor.getCol());
+            }if(doctor.getRow() == dk3.getRow() && doctor.getCol() == dk3.getCol()){
+                board.removePeg(doctor.getRow(), doctor.getCol());
+                board.removePeg(dk3.getRow(), dk3.getCol());
+                board.putPeg(Color.yellow,doctor.getRow(), doctor.getCol());
             }
-            
+            if(doctor.getRow() == dk1.getRow() && doctor.getCol() == dk1.getCol()
+                    && doctor.getRow() == dk2.getRow() && doctor.getCol() == dk2.getCol()
+                    && doctor.getRow() == dk3.getRow() && doctor.getCol() == dk3.getCol()){
+                board.removePeg(doctor.getRow(),doctor.getCol());
+            }
         }
-    }
 
+    }
+}

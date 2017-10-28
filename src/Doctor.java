@@ -34,15 +34,19 @@ public class Doctor {
         int rdmCol = (int) (Math.random() * 12);
         int rdmRow = (int) (Math.random() * 12);
 
-        if (newRow > 1 && newCol > 1) {
-            newRow = this.row;
-            newCol = this.col;
-        } else {
+        if (newRow > -1 && newCol > -1) {
+            newRow = this.row++;
+            newCol = this.col++;
+        }
+        else if (newRow<-1 && newCol<-1) {
+            newRow=this.row++;
+            newCol=this.col++;
+    }
+        if(newRow==-1 && newCol==-1){
             newRow = rdmRow;
             newCol = rdmCol;
         }
     }
-
     /**
      * Returns the row of this Doctor.
      *
