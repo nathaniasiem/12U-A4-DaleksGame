@@ -30,16 +30,16 @@ public class Dalek {
     public void advanceTowards(Doctor doc) {
         //when doctor moves forward
         if (this.row> doc.getRow()){
-            this.row++;   
+            this.row--;   
     }
         if(this.getCol()>doc.getCol()){
-            this.col++;
+            this.col--;
         }
         if (this.row<doc.getRow()){
-            this.row--;
+            this.row++;
         }
         if(this.getCol()< doc.getCol()){
-            this.col--;
+            this.col++;
         }
         
     }

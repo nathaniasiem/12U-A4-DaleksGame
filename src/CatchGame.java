@@ -59,11 +59,23 @@ public class CatchGame {
         while(true){
             //initialize the user to be able to click the board
             Coordinate click = board.getClick();
-            doctor.move(click.getRow(),click.getCol());
             board.removePeg(doctor.getRow(), doctor.getCol());
+            doctor.move(click.getRow(),click.getCol());
             board.putPeg(Color.green, doctor.getRow(),doctor.getCol());
-           
             
+           board.removePeg(dk1.getRow(), dk1.getCol());
+           board.removePeg(dk2.getRow(), dk2.getCol());
+           board.removePeg(dk3.getRow(), dk3.getCol());
+            
+           dk1.advanceTowards(doctor);
+           board.putPeg(Color.BLACK, dk1.getRow(),dk1.getCol());
+           
+           dk2.advanceTowards(doctor);
+           board.putPeg(Color.BLACK, dk2.getRow(),dk2.getCol());
+           
+           dk3.advanceTowards(doctor);
+           board.putPeg(Color.BLACK, dk3.getRow(),dk3.getCol());
+           
             if(dk1.hasCrashed(dk2)){
                 dk1.crash();
                 dk2.crash();
@@ -90,12 +102,11 @@ public class CatchGame {
                 board.removePeg(dk1.getRow(),dk1.getCol());
                 board.removePeg(dk2.getRow(),dk2.getCol());
                 board.removePeg(dk3.getRow(),dk3.getCol());
+                board.putPeg(Color.red,dk1.getRow(),dk1.getRow());
                 board.displayMessage("You have WON!");
                 break;
             }
-            
-            
-                
+   
             }
             
         }
