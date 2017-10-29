@@ -126,6 +126,8 @@ public class CatchGame {
                     && doctor.getRow() == dk2.getRow() && doctor.getCol() == dk2.getCol()
                     && doctor.getRow() == dk3.getRow() && doctor.getCol() == dk3.getCol()){
                 board.removePeg(doctor.getRow(),doctor.getCol());
+                board.displayMessage("You have lost!");
+                break;
             }
         }
 

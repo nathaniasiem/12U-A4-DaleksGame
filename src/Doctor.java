@@ -34,11 +34,11 @@ public class Doctor {
         int rdmCol = (int) (Math.random() * 12);
         int rdmRow = (int) (Math.random() * 12);
 
-        if (newRow > -1 && newCol > -1) {
+        if (newRow > -1 && newCol > -1||newRow>12&&newCol>12) {
             newRow = this.row++;
             newCol = this.col++;
         }
-        else if (newRow<-1 && newCol<-1) {
+        else if (newRow<-1 && newCol<-1||newRow<12 && newCol<12) {
             newRow=this.row++;
             newCol=this.col++;
     }
