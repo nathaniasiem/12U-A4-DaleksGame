@@ -28,14 +28,17 @@ public class CatchGame {
         int bRow = (int) (Math.random() * 12);
         int bCol = (int) (Math.random() * 12);
         doctor = new Doctor(bRow, bCol);
+        
         //create position for dalek 1
         int d1Row = (int) (Math.random() * 12);
         int d1Col = (int) (Math.random() * 12);
         dk1 = new Dalek(d1Row, d1Col);
+        
         //create position for dalek 2
         int d2Row = (int) (Math.random() * 12);
         int d2Col = (int) (Math.random() * 12);
         dk2 = new Dalek(d2Row, d2Col);
+        
         //create position for dalek 3
         int d3Row = (int) (Math.random() * 12);
         int d3Col = (int) (Math.random() * 12);
@@ -60,6 +63,7 @@ public class CatchGame {
             //initialize the user to be able to click the board
             Coordinate click = board.getClick();
             
+            //moves the doctor according
             board.removePeg(doctor.getRow(), doctor.getCol());
             doctor.move(click.getRow(), click.getCol());
             board.putPeg(Color.green, doctor.getRow(), doctor.getCol());
