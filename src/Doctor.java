@@ -34,14 +34,16 @@ public class Doctor {
         int rdmCol = (int) (Math.random() * 12);
         int rdmRow = (int) (Math.random() * 12);
 
+        //condition for doctor to move forward when the distance between the new and old coordinate is greater than equal to -1 or 1     
         if (newRow - this.row >= -1 && newCol - this.col >= -1 || newRow - this.row >= 1 && newCol - this.col >= 1) {
             newRow = this.row++;
             newCol = this.col++;
-        } else if (newRow - this.row < -1 && newCol - this.col < -1 || newRow - this.row < 1 && newCol - this.col < 1) {
+        } //condition for doctor to move backward when the distance between the new and old coordinate is less than -1 or 1
+        else if (newRow - this.row < -1 && newCol - this.col < -1 || newRow - this.row < 1 && newCol - this.col < 1) {
             newRow = this.row--;
             newCol = this.col--;
-        } 
-        if (newRow == -1 && newCol == -1) {           
+        } //condition when the new coordinate is equal to -1 or 12, teleport the doctor to a new location on the board
+        if (newRow== -1 && newCol == -1||newRow== 12 && newCol== 12) {           
             newRow = rdmRow;           
             newCol = rdmCol;
        }
